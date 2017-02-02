@@ -6,22 +6,26 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 
+
 def wacs(request):
-    context = {'li','lo'}
+    context = {"in","lo"}
     return render(request, 'wacs.html', context)
+
 
 class LoginFormView(FormView):
     form_class = AuthenticationForm
 
     # Аналогично регистрации, только используем шаблон аутентификации.
-    template_name = "login.html"
+    template_name = "auth.html"
 
     # В случае успеха перенаправим на .
     success_url = "/wacs"
 
     def form_valid(self, form):
         # Получаем объект пользователя на основе введённых в форму данных.
-        self.user = form.get_user()
+        self.username = self.request.POST['username']
+        self.password = self.request.POST['password']
+        self.user = auth.authenticate(username=self.username, password=self.password)
 
         # Выполняем аутентификацию пользователя.
         auth.login(self.request, self.user)
