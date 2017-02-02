@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'balancer.middleware.PinningSessionMiddleware'
+    #'balancer.middleware.PinningSessionMiddleware'
 ]
 
 ROOT_URLCONF = 'untitled7.urls'
