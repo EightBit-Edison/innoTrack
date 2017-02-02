@@ -464,9 +464,9 @@ a:focus{
 ---------------------------------------------------------------------- */
 .site-title{
 	text-align:center;
-	font-size:66px;
+	font-size:50px;
 	font-family:'Pacifico';
-	margin:0 0 50px 0;
+	margin:0 0 50px -20px;
 	padding-bottom:50px;
 	position:relative;
 }

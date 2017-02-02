@@ -52,7 +52,7 @@ table {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
    	filter: alpha(opacity=100);
    	opacity: 1;
-   	margin-top: -75px;
+   	margin-top: -150px;
  }
 
 }
@@ -66,7 +66,7 @@ table {
  100% {
    filter: alpha(opacity=100);
    opacity: 1;
-   margin-top: -75px;
+   margin-top: -150px;
  }
 
 }
@@ -80,7 +80,7 @@ table {
  100% {
    filter: alpha(opacity=100);
    opacity: 1;
-   margin-top: -75px;
+   margin-top: -150px;
  }
 
 }
@@ -96,7 +96,7 @@ table {
    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
    filter: alpha(opacity=100);
    opacity: 1;
-   margin-top: -75px;
+   margin-top: -150px;
  }
 
 }
@@ -110,7 +110,7 @@ table {
  100% {
    filter: alpha(opacity=100);
    opacity: 1;
-   margin-top: -75px;
+   margin-top: -150px;
  }
 
 }
@@ -130,7 +130,7 @@ body {
 	left: 50%;
 	top: 50%;
 	margin-left: -110px;
-	margin-top: -75px;
+	margin-top: -150px;
 
 	-webkit-animation: login 1s ease-in-out;
 	-moz-animation: login 1s ease-in-out;
@@ -249,7 +249,7 @@ body {
 	box-shadow: inset 0px 1px 0px #93a9e9;
 }
 
-/* Стили бара vladmaxi, можно удалить */
+/* пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ vladmaxi, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 .vladmaxi-top{
 	line-height: 24px;
 	font-size: 11px;
