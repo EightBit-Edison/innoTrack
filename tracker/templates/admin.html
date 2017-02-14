@@ -1,0 +1,111 @@
+{% load staticfiles %}
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href={% static "tracker/css/stylesheet.css" %} rel="stylesheet" type="text/css">
+  </head><body>
+    <div class="navbar navbar-default navbar-static-top" style="background-color: #323B55">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" style="color: #FFFFFF">TrackAdmin<br></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+          <ul class="nav navbar-nav navbar-right"></ul>
+            <a class="btn btn-primary navbar-btn navbar-right" href="{% url "logout" %}">Выход</a>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="col-md-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Пользователи</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-12">
+              <table class="table" style="font-family: 'Droid Sans'; font-style: normal; font-size: 14px;">
+                <thead>
+                  <tr>
+                    <th class="active">#</th>
+                    <th class="active">Имя</th>
+                    <th class="active">Логин</th>
+                    <th class="active">Статус</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="active">1</td>
+                    <td>Mark</td>
+                    <td>01981</td>
+                    <td>student</td>
+                  </tr>
+                  <tr>
+                    <td class="active">2</td>
+                    <td>Jacob</td>
+                    <td>01982</td>
+                    <td>student</td>
+                  </tr>
+                  <tr>
+                    <td class="active">3</td>
+                    <td>Larry</td>
+                    <td>01983</td>
+                    <td>student</td>
+                  </tr>
+                  <tr>
+                    <td class="active">4</td>
+                    <td>Larry</td>
+                    <td>01984</td>
+                    <td>student</td>
+                  </tr>
+                  <tr>
+                    <td class="active">5</td>
+                    <td>Larry</td>
+                    <td>01985</td>
+                    <td>student</td>
+                  </tr>
+                  <tr>
+                    <td class="active">6</td>
+                    <td>Larry</td>
+                    <td>01986</td>
+                    <td>student</td>
+                  </tr>
+                  <tr>
+                    <td class="active">7</td>
+                    <td>Larry</td>
+                    <td>01987</td>
+                    <td>admin</td>
+                  </tr>
+                  <tr>
+                    <td class="active">8</td>
+                    <td>Larry</td>
+                    <td>01988</td>
+                    <td>student</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group btn-group-justified btn-group-vertical" data-toggle="buttons">
+          <a href="#" class="btn btn-success">Добавить</a>
+          <a href="#" class="btn btn-danger">Удалить</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Карта
+              <br>
+            </h3>
+          </div>
+          <div class="panel-body">
+            <img class="center-block img-responsive img-thumbnail" src="http://maps.googleapis.com/maps/api/staticmap?center=Kursk,Russia&amp;zoom=15&amp;size=600x400&amp;sensor=false&amp;maptype=roadmap&amp;markers=color:blue%7Clabel:T%7C51.707256,%2036.150202">
+          </div>
+        </div>
+      </div>
+  
+
+</div></body></html>

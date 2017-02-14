@@ -5,12 +5,20 @@ from django.views.generic.edit import FormView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth
 from django.http import HttpResponseRedirect
+from django.contrib.auth import logout
 
+def logoutfunc(request):
+    logout(request)
+    # Redirect to a success page.
+    return HttpResponseRedirect("/tracking")
 
 def wacs(request):
     context = {"in","lo"}
     return render(request, 'wacs.html', context)
 
+def panel(request):
+    context = {"in", "li"}
+    return render(request, 'admin.html', context)
 
 class LoginFormView(FormView):
     form_class = AuthenticationForm
@@ -19,7 +27,7 @@ class LoginFormView(FormView):
     template_name = "auth.html"
 
     # В случае успеха перенаправим на .
-    success_url = "/wacs"
+    success_url = "/panel"
 
     def form_valid(self, form):
         # Получаем объект пользователя на основе введённых в форму данных.
