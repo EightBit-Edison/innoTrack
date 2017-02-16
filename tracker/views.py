@@ -6,16 +6,18 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 
 def logoutfunc(request):
     logout(request)
     # Redirect to a success page.
-    return HttpResponseRedirect("/tracking")
+    return HttpResponseRedirect("/tracking/")
 
 def wacs(request):
     context = {"in","lo"}
     return render(request, 'wacs.html', context)
 
+@login_required(login_url="/tracking/")
 def panel(request):
     context = {"in", "li"}
     return render(request, 'admin.html', context)

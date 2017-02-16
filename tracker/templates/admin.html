@@ -6,6 +6,15 @@
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href={% static "tracker/css/stylesheet.css" %} rel="stylesheet" type="text/css">
+        <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <!-- (Optional) Latest compiled and minified JavaScript translation
+    files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
+    <script type="text/javascript" src="{% static "tracker/js/select.js" %}"></script>
+
   </head><body>
     <div class="navbar navbar-default navbar-static-top" style="background-color: #323B55">
       <div class="container">
@@ -20,80 +29,41 @@
     </div>
     <div class="section">
       <div class="col-md-6">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Пользователи</h3>
-          </div>
-          <div class="panel-body">
-            <div class="col-md-12">
-              <table class="table" style="font-family: 'Droid Sans'; font-style: normal; font-size: 14px;">
-                <thead>
-                  <tr>
-                    <th class="active">#</th>
-                    <th class="active">Имя</th>
-                    <th class="active">Логин</th>
-                    <th class="active">Статус</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="active">1</td>
-                    <td>Mark</td>
-                    <td>01981</td>
-                    <td>student</td>
-                  </tr>
-                  <tr>
-                    <td class="active">2</td>
-                    <td>Jacob</td>
-                    <td>01982</td>
-                    <td>student</td>
-                  </tr>
-                  <tr>
-                    <td class="active">3</td>
-                    <td>Larry</td>
-                    <td>01983</td>
-                    <td>student</td>
-                  </tr>
-                  <tr>
-                    <td class="active">4</td>
-                    <td>Larry</td>
-                    <td>01984</td>
-                    <td>student</td>
-                  </tr>
-                  <tr>
-                    <td class="active">5</td>
-                    <td>Larry</td>
-                    <td>01985</td>
-                    <td>student</td>
-                  </tr>
-                  <tr>
-                    <td class="active">6</td>
-                    <td>Larry</td>
-                    <td>01986</td>
-                    <td>student</td>
-                  </tr>
-                  <tr>
-                    <td class="active">7</td>
-                    <td>Larry</td>
-                    <td>01987</td>
-                    <td>admin</td>
-                  </tr>
-                  <tr>
-                    <td class="active">8</td>
-                    <td>Larry</td>
-                    <td>01988</td>
-                    <td>student</td>
-                  </tr>
-                </tbody>
-              </table>
+      <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Пользователи</h3>
             </div>
+            <div class="panel-body">
+              <div class="col-md-4">
+                <select class="selectpicker" id="myselect" data-width="100%" data-live-search="true" title="Выберите студента">
+                </select>
+              </div>
+              <div class="col-md-4">
+                <a class="btn btn-block btn-success" onclick="add()">Добавить</a>
+              </div>
+              <div class="col-md-4">
+                <a class="btn btn-block btn-danger" onclick="del()">Удалить</a>
+              </div>
+            </div>
+            <hr>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="active">Имя</th>
+                  <th class="active">Логин</th>
+                  <th class="active">Статус</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="Name">Adam</td>
+                  <td id="Log">21345</td>
+                  <td is="Stat">student</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
-        <div class="btn-group btn-group-justified btn-group-vertical" data-toggle="buttons">
-          <a href="#" class="btn btn-success">Добавить</a>
-          <a href="#" class="btn btn-danger">Удалить</a>
-        </div>
-      </div>
+          </div>
       <div class="col-md-6">
         <div class="panel panel-primary">
           <div class="panel-heading">
