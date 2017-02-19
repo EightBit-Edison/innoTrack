@@ -13,6 +13,11 @@ def logoutfunc(request):
     # Redirect to a success page.
     return HttpResponseRedirect("/tracking/")
 
+@login_required(login_url="/tracking/")
+def add_view(request):
+    context = {"in", "lu"}
+    return render(request, 'Add.html', context)
+
 def wacs(request):
     context = {"in","lo"}
     return render(request, 'wacs.html', context)

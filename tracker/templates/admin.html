@@ -1,25 +1,31 @@
 {% load staticfiles %}
-<html><head>
+<!DOCTYPE html>
+<html ng-app="myApp"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href={% static "tracker/css/stylesheet.css" %} rel="stylesheet" type="text/css">
-        <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-    <!-- Latest compiled and minified JavaScript -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-    <!-- (Optional) Latest compiled and minified JavaScript translation
-    files -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
     <script type="text/javascript" src="{% static "tracker/js/select.js" %}"></script>
+    <script src="{% static "tracker/js/ya-map-2.1.min.js" %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <style type="text/css">
+        html, body { height: 100%; margin: 0; padding: 0; }
+        #map { width: 100%; height: 400px; }
+    </style>
 
-  </head><body>
+
+  </head>
+    <body onload="Get()">
     <div class="navbar navbar-default navbar-static-top" style="background-color: #323B55">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#" style="color: #FFFFFF">TrackAdmin<br></a>
+          <a class="navbar-brand" href="#" style="color: #FFFFFF; font-size: 40px">TrackAdmin<br></a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right"></ul>
@@ -35,14 +41,14 @@
             </div>
             <div class="panel-body">
               <div class="col-md-4">
-                <select class="selectpicker" id="myselect" data-width="100%" data-live-search="true" title="Выберите студента">
+                <select class="selectpicker" id="myselect" data-width="100%" onchange="SetUser()" data-live-search="true" title="Выберите студента">
                 </select>
               </div>
               <div class="col-md-4">
-                <a class="btn btn-block btn-success" onclick="add()">Добавить</a>
+                <a class="btn btn-block btn-success" href="/add/">Добавить</a>
               </div>
               <div class="col-md-4">
-                <a class="btn btn-block btn-danger" onclick="del()">Удалить</a>
+                <a class="btn btn-block btn-danger" >Удалить</a>
               </div>
             </div>
             <hr>
@@ -50,15 +56,13 @@
               <thead>
                 <tr>
                   <th class="active">Имя</th>
-                  <th class="active">Логин</th>
                   <th class="active">Статус</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td id="Name">Adam</td>
-                  <td id="Log">21345</td>
-                  <td is="Stat">student</td>
+                <tr id="userparam">
+                  <td id="Name">Name</td>
+                  <td id="Stat">Status</td>
                 </tr>
               </tbody>
             </table>
@@ -72,10 +76,15 @@
             </h3>
           </div>
           <div class="panel-body">
-            <img class="center-block img-responsive img-thumbnail" src="http://maps.googleapis.com/maps/api/staticmap?center=Kursk,Russia&amp;zoom=15&amp;size=600x400&amp;sensor=false&amp;maptype=roadmap&amp;markers=color:blue%7Clabel:T%7C51.707256,%2036.150202">
+              <div id="map"></div>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBK8uoLaAEQAzidrQlwu-lSXVfMiwfuEi8&callback=initMap">
+    </script>
           </div>
         </div>
       </div>
-  
 
-</div></body></html>
+
+</div>
+</body>
+</html>
