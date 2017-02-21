@@ -24,7 +24,6 @@ function SetMarker(lat, lng) {
   var marker = new google.maps.Marker({
     position: myLatLng,
     map: map,
-    title: 'Hello World!',
     animation: google.maps.Animation.DROP
   });
 
