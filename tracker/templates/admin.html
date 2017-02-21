@@ -12,7 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
     <script type="text/javascript" src="{% static "tracker/js/select.js" %}"></script>
-    <script src="{% static "tracker/js/ya-map-2.1.min.js" %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
     <style type="text/css">
         html, body { height: 100%; margin: 0; padding: 0; }
@@ -57,12 +56,14 @@
                 <tr>
                   <th class="active">Имя</th>
                   <th class="active">Статус</th>
+                  <th class="active">Дата</th>
                 </tr>
               </thead>
               <tbody>
                 <tr id="userparam">
                   <td id="Name">Name</td>
                   <td id="Stat">Status</td>
+                  <td id="Date">Date</td>
                 </tr>
               </tbody>
             </table>
