@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Geolabel
+from .models import Geolabels
 
 # Register your models here.
-admin.site.register(Geolabel)
+admin.site.register(Geolabels)

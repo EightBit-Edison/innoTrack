@@ -32,36 +32,36 @@ function SetMarker(lat, lng) {
 function SetUser() {
     var e = document.getElementById("myselect");
     var strUser = e.options[e.selectedIndex].text;
-
-
     $("#Name").remove();
     $("#Stat").remove();
     $("#Date").remove();
 
-    var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", '/users/?format=json', true);
+    try {
+        var xhr = new XMLHttpRequest();
 
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            var data = JSON.parse(xhr.responseText);
-            var j = data.length;
-            for (var i = 0; i < j; i++) {
-                if (strUser === data[i].username) {
-                    var Name = data[i].username;
-                    $("#userparam").append('<td id="Name">' + Name + '</td>');
-                    if (data[i].is_staff === true) {
-                        $("#userparam").append('<td id="Stat">Administartor</td>');
-                    } else if (data[i].is_staff === false) {
-                        $("#userparam").append('<td id="Stat">Student</td>');
+        xhr.open("GET", '/users/?format=json', true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+                var j = data.length;
+                for (var i = 0; i < j; i++) {
+                    if (strUser === data[i].username) {
+                        var Name = data[i].username;
+                        $("#userparam").append('<td id="Name">' + Name + '</td>');
+                        if (data[i].is_staff === true) {
+                            $("#userparam").append('<td id="Stat">Administartor</td>');
+                        } else if (data[i].is_staff === false) {
+                            $("#userparam").append('<td id="Stat">Student</td>');
+                        }
+
                     }
 
                 }
-
             }
-        }
-    };
-        xhr.send();
+        };
+
 
         var x = new XMLHttpRequest();
         var x1 = new XMLHttpRequest();
@@ -78,7 +78,7 @@ function SetUser() {
                         if ((loc[i].student === dat[n].url) && (strUser === dat[n].username)) {
                             //alert('Имя: '+ dat[n].username + '  Долгота: ' + loc[i].longitude + '   Широта: ' + loc[i].latitude);
                             SetMarker(loc[i].longitude, loc[i].latitude);
-                            $("#userparam").append('<td id="Date">'+ loc[n].location_date + '</td>');
+                            $("#userparam").append('<td id="Date">' + loc[n].location_date + '</td>');
 
                         }
                     }
@@ -87,10 +87,16 @@ function SetUser() {
 
             }
         };
+        xhr.send();
         x1.send();
         x.send();
 
+    }
+    catch(err) {
+       SetUser();
+    }
 }
+
 function Get() {
 
     var xhr = new XMLHttpRequest();

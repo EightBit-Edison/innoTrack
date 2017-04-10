@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from tracker.models import Geolabel
+from tracker.models import Geolabels
 from rest_framework import serializers, viewsets,generics
 
 # Serializers define the API representation.
@@ -16,12 +16,12 @@ class UserViewSet(viewsets.ModelViewSet):
 # Serializers define the API representation.
 class GeolabelSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Geolabel
+        model = Geolabels
         fields = ('student', 'longitude', 'latitude', 'location_date')
 
 # ViewSets define the view behavior.
 class GeolabelViewSet(viewsets.ModelViewSet):
-    queryset = Geolabel.objects.all()
+    queryset = Geolabels.objects.all()
     serializer_class = GeolabelSerializer
 
 class GeolabelList(generics.ListAPIView):
@@ -33,6 +33,6 @@ class GeolabelList(generics.ListAPIView):
         the user as determined by the username portion of the URL.
         """
         username = self.kwargs['username']
-        return Geolabel.objects.filter(student__username=username)
+        return Geolabels.objects.filter(student__username=username)
 
 
