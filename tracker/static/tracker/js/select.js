@@ -70,7 +70,7 @@ function SetUser() {
         x.onreadystatechange = function () {
             if (x.readyState === XMLHttpRequest.DONE && x.status === 200) {
                 var loc = JSON.parse(x.responseText);
-                var dat = JSON.parse(x1.responseText);
+                var dat = setTimeout(JSON.parse(x1.responseText),1500);
                 var q = dat.length;
                 var m = loc.length;
                 for (var i = 0; i < m; i++) {
@@ -113,27 +113,6 @@ function Get() {
             $("#myselect").val('');
             $("#myselect").selectpicker("refresh");
 
-        }
-    };
-
-    xhr.send();
-
-}
-
-function AddUser() {
-
-    var userName = "Ali";
-    var Email = "123@yandex.ru";
-    var Staff = false;
-
-    var xhr = new XMLHttpRequest();
-
-    xhr.open("POST", '/users/?username='+userName+'&email='+Email+'&is_staff='+ Staff, true);
-    xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-    xhr.onreadystatechange = function () {
-        if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200 ) {
-            alert("Добавлено");
-            Get();
         }
     };
 
